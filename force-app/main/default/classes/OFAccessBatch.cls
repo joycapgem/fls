@@ -1,24 +1,18 @@
 // OFAccess -- Object Field Access
 public class OFAccessBatch implements Database.Batchable<sObject>, Database.AllowsCallouts {
-    private List<ArchiveObject__c> objNames;
 
-    public OFAccessBatch(List<ArchiveObject__c> objects){
-        this.objNames = objects;
-    }
-
-    public static Database.QueryLocator start(Database.BatchableContext BC){
-        // String query = 'Select Id, object__c from ArchiveObject__c';
-        // return Database.getQueryLocator(query);
-        return this.objNames;
+    public static Database.QueryLocator start(Database.BatchableContext bc){
+        String query = 'Select Id, object__c from ArchiveObject__c';
+        return Database.getQueryLocator(query);
     }
     
-    public static void execute(Database.BatchableContext BC, List<ArchiveObject__c> objNames){
+    public static void execute(Database.BatchableContext bc, List<ArchiveObject__c> objNames){
         for(ArchiveObject__c s : objNames){
-       	    revokeAccessFromAll('User1', true, s.object__c);
+            giveReadAccessToAll('User1', true, s.object__c);
         }
     }
     
-    public void finish(Database.BatchableContext BC){
+    public void finish(Database.BatchableContext bc){
         System.debug('Task Executed.');
     }
     
