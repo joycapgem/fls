@@ -1,5 +1,6 @@
+
 // AFAccess -- Account Field Access
-public class OFAccess{
+public class AFAccess {
     // give read access to all fields of an object.
     public static void giveReadAccessToAll(String profileName, boolean isCustom, String objectName){
         FLS.updateFieldLevelSecurityObj(profileName, isCustom, objectName, true, false);

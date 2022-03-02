@@ -1,12 +1,12 @@
 public class FLSBatch {
     public static Database.QueryLocator start(Database.BatchableContext bc){
-        String query = 'Select Name from ArchiveObject__c';
+        String query = 'Select object__c from ArchiveObject__c';
         return Database.getQueryLocator(query);
     }
     
     public static void execute(Database.BatchableContext bc, List<ArchiveObject__c> objNames){
         for(ArchiveObject__c s : objNames){
-            OFAccess.giveReadAccessToAll('Archive Account', true, s.Name);
+            OFAccess.giveReadAccessToAll('Archive Account', true, s.object__c);
         }
     }
     

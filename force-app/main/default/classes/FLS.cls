@@ -2,7 +2,7 @@ public class FLS {
     /*
      To give access to some fields of an object.
      */
-   	public static void updateFieldLevelSecuritySpecifiedFields(String profileName, boolean isCustom, String objectName, String fieldNames, boolean canRead, boolean canEdit){
+   	public static void updateFieldLevelSecurityFields(String profileName, boolean isCustom, String objectName, String fieldNames, boolean canRead, boolean canEdit){
         
         MetadataService.MetadataPort service = createService();
         System.debug('Service Created.');
@@ -25,7 +25,8 @@ public class FLS {
         cust.fieldPermissions  = fieldsSec;
         System.debug('Building required metadata.');
         List<MetadataService.SaveResult> results =
-            service.updateMetadata(new MetadataService.Metadata[] { cust });
+            service.updateMetadata(
+                new MetadataService.Metadata[] { cust });
         System.debug('Metadata created.');
         handleSaveResults(results[0]);
         System.debug('FLS created.');
@@ -34,7 +35,7 @@ public class FLS {
     /*
      To give access to all fields of an object.
      */
-    public static void updateFieldLevelSecurityAllFields(String profileName, boolean isCustom, String objectName, boolean canRead, boolean canEdit){
+    public static void updateFieldLevelSecurityObj(String profileName, boolean isCustom, String objectName, boolean canRead, boolean canEdit){
         
         MetadataService.MetadataPort service = createService();
         System.debug('Service Created.');

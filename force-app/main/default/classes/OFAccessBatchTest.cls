@@ -54,45 +54,45 @@
         Test.stopTest();
     }
     
-    @isTest public static void runPositiveTestsAllFieldsEdit(){
-        System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
-        Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
-        Test.startTest();
-        OFAccessBatch.giveEditAccessToAll(profileData.Name, true, 'Account');
-        Test.stopTest();
-    }
+    // @isTest public static void runPositiveTestsAllFieldsEdit(){
+    //     System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
+    //     Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
+    //     Test.startTest();
+    //     OFAccessBatch.giveEditAccessToAll(profileData.Name, true, 'Account');
+    //     Test.stopTest();
+    // }
     
-    @isTest public static void runPositiveTestsAllFieldsRevoke(){
-        System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
-        Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
-        Test.startTest();
-        OFAccessBatch.revokeAccessFromAll(profileData.Name, true, 'Account');
-        Test.stopTest();
-    }
+    // @isTest public static void runPositiveTestsAllFieldsRevoke(){
+    //     System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
+    //     Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
+    //     Test.startTest();
+    //     OFAccessBatch.revokeAccessFromAll(profileData.Name, true, 'Account');
+    //     Test.stopTest();
+    // }
     
-    @isTest public static void runPositiveTestsSpecifiedFieldsRead(){
-        System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
-        Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
-        Test.startTest();
-        OFAccessBatch.giveReadAccessToSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
-        Test.stopTest();
-    }
+    // @isTest public static void runPositiveTestsSpecifiedFieldsRead(){
+    //     System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
+    //     Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
+    //     Test.startTest();
+    //     OFAccessBatch.giveReadAccessToSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
+    //     Test.stopTest();
+    // }
     
-    @isTest public static void runPositiveTestsSpecifiedFieldsEdit(){
-        System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
-        Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
-        Test.startTest();
-        OFAccessBatch.giveEditAccessToSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
-        Test.stopTest();
-    }
+    // @isTest public static void runPositiveTestsSpecifiedFieldsEdit(){
+    //     System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
+    //     Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
+    //     Test.startTest();
+    //     OFAccessBatch.giveEditAccessToSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
+    //     Test.stopTest();
+    // }
     
-    @isTest public static void runPositiveTestsSpecifiedFieldsRevoke(){
-        System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
-        Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
-        Test.startTest();
-        OFAccessBatch.revokeAccessFromSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
-        Test.stopTest();
-    }    
+    // @isTest public static void runPositiveTestsSpecifiedFieldsRevoke(){
+    //     System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
+    //     Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
+    //     Test.startTest();
+    //     OFAccessBatch.revokeAccessFromSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
+    //     Test.stopTest();
+    // }    
     
     @isTest public static void runNegativeTestsAllFields(){
         System.Test.setMock(WebServiceMock.class, new WebServiceMockImplError());
@@ -106,15 +106,15 @@
         Test.stopTest();
     }
     
-	@isTest public static void runNegativeTestsSpecificFields(){
-        System.Test.setMock(WebServiceMock.class, new WebServiceMockImplError());
-        Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
-        Test.startTest();
-        try{
-            OFAccessBatch.giveEditAccessToSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
-        }catch(Exception e){
-            System.debug(e);
-        }
-        Test.stopTest();
-    }
+	// @isTest public static void runNegativeTestsSpecificFields(){
+    //     System.Test.setMock(WebServiceMock.class, new WebServiceMockImplError());
+    //     Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
+    //     Test.startTest();
+    //     try{
+    //         OFAccessBatch.giveEditAccessToSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
+    //     }catch(Exception e){
+    //         System.debug(e);
+    //     }
+    //     Test.stopTest();
+    // }
 }
