@@ -2,7 +2,7 @@ public class FLS {
     /*
      To give access to some fields of an object.
      */
-   	public static void updateFieldLevelSecuritySpecifiedFields(String profileName, boolean isCustom, String objectName, String fieldNames, boolean canRead, boolean canEdit){
+   	public static void updateFieldLevelSecurityFields(String profileName, boolean isCustom, String objectName, String fieldNames, boolean canRead, boolean canEdit){
         
         MetadataService.MetadataPort service = createService();
         System.debug('Service Created.');
