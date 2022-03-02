@@ -22,7 +22,7 @@
         Profile profileDet = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
         System.debug(profileDet.Name);
         Test.startTest();
-        AFAccess.giveReadAccessToAll(profileDet.Name, true, 'Account');
+        OFAccessBatch.giveReadAccessToAll(profileDet.Name, true, 'Account');
         Test.stopTest();
     }
 }

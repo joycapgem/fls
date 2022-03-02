@@ -1,4 +1,4 @@
-@isTest public class OFAccessTest {
+@isTest public class OFAccessBatchTest {
     private class WebServiceMockImplSuccess implements WebServiceMock
 	{
 		public void doInvoke(
@@ -50,7 +50,7 @@
         System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
         Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];        
         Test.startTest();
-        OFAccess.giveReadAccessToAll(profileData.Name, true, 'Account');
+        OFAccessBatch.giveReadAccessToAll(profileData.Name, true, 'Account');
         Test.stopTest();
     }
     
@@ -58,7 +58,7 @@
         System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
         Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
         Test.startTest();
-        OFAccess.giveEditAccessToAll(profileData.Name, true, 'Account');
+        OFAccessBatch.giveEditAccessToAll(profileData.Name, true, 'Account');
         Test.stopTest();
     }
     
@@ -66,7 +66,7 @@
         System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
         Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
         Test.startTest();
-        OFAccess.revokeAccessFromAll(profileData.Name, true, 'Account');
+        OFAccessBatch.revokeAccessFromAll(profileData.Name, true, 'Account');
         Test.stopTest();
     }
     
@@ -74,7 +74,7 @@
         System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
         Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
         Test.startTest();
-        OFAccess.giveReadAccessToSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
+        OFAccessBatch.giveReadAccessToSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
         Test.stopTest();
     }
     
@@ -82,7 +82,7 @@
         System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
         Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
         Test.startTest();
-        OFAccess.giveEditAccessToSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
+        OFAccessBatch.giveEditAccessToSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
         Test.stopTest();
     }
     
@@ -90,7 +90,7 @@
         System.Test.setMock(WebServiceMock.class, new WebServiceMockImplSuccess());
         Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
         Test.startTest();
-        OFAccess.revokeAccessFromSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
+        OFAccessBatch.revokeAccessFromSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
         Test.stopTest();
     }    
     
@@ -99,7 +99,7 @@
         Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
         Test.startTest();
         try{
-            OFAccess.giveReadAccessToAll(profileData.Name, true, 'Account');
+            OFAccessBatch.giveReadAccessToAll(profileData.Name, true, 'Account');
         }catch(Exception e){
             System.debug(e);
         }
@@ -111,7 +111,7 @@
         Profile profileData = [SELECT Id, Name FROM Profile WHERE Name = 'National Accounts' LIMIT 1];
         Test.startTest();
         try{
-            OFAccess.giveEditAccessToSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
+            OFAccessBatch.giveEditAccessToSpecifiedFields(profileData.Name, true, 'Account', 'Fax,Type,AccountNumber,Price__c');
         }catch(Exception e){
             System.debug(e);
         }
